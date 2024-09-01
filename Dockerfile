@@ -1,8 +1,14 @@
 # Use an official Python runtime as a parent image
-#FROM python:3.8-slim
+FROM python:3.8-slim
 
 # Set the working directory in the container
-#WORKDIR /app
+WORKDIR /app
+
+ENV FLASK_APP=app.py
+
+COPY ..
+
+CMD ["flask", ""run", "--host=0.0.0.0"]
 
 # Copy the current directory contents into the container at /app
 #COPY . /app
@@ -18,6 +24,6 @@
 
 # Run app.py when the container launches
 #CMD ["python", "app.py"]
-FROM busybox
+#FROM busybox
 
-CMD ["sh","-c","echo 'Hello from BusyBox Image Keerthik'"]
+#CMD ["sh","-c","echo 'Hello from BusyBox Image Keerthik'"]
